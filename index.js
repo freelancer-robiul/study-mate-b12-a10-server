@@ -35,8 +35,8 @@ async function run() {
     const col = db.collection(COLL_NAME);
     const reqCol = db.collection(REQ_COLL_NAME);
 
-    await db.command({ ping: 1 });
-    console.log("✅ MongoDB connected successfully!");
+    // await db.command({ ping: 1 });
+    // console.log("✅ MongoDB connected successfully!");
 
     app.get("/", (_req, res) => res.send("StudyMate API running!"));
 
