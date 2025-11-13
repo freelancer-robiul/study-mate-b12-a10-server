@@ -38,12 +38,7 @@ async function run() {
     await db.command({ ping: 1 });
     console.log("✅ MongoDB connected successfully!");
 
-    // Default route
     app.get("/", (_req, res) => res.send("StudyMate API running!"));
-
-    // -------------------
-    // PARTNERS ROUTES
-    // -------------------
 
     app.get("/api/partners", async (req, res, next) => {
       try {
@@ -239,9 +234,6 @@ async function run() {
       }
     });
 
-    // -------------------
-    // 404 & error handling
-    // -------------------
     app.use((_req, res) =>
       res.status(404).json({ message: "Route not found" })
     );
@@ -251,10 +243,10 @@ async function run() {
     );
 
     app.listen(port, () =>
-      console.log(`🚀 Server running on http://localhost:${port}`)
+      console.log(`Server running on http://localhost:${port}`)
     );
   } catch (e) {
-    console.error("❌ Startup error:", e);
+    console.error("Startup error:", e);
   }
 }
 
